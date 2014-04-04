@@ -1,5 +1,7 @@
 class Supplier < ActiveRecord::Base
   
+  has_and_belongs_to_many :tags
+  
   validates :name, :address, :latitude, :longitude, presence: true
   validates :name, uniqueness: true
   validates :name, length: {maximum: 200}
