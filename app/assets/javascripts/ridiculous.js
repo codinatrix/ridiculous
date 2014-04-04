@@ -3,11 +3,12 @@ var RIDICULOUSHAT = function() {
 	var mapClass = function() {
 		
 		var self = this;
-		var centerLoc, infoWindow, map;
+		var infoWindow, map;
+		var centerLoc = {};
 		
 		this.makeMap = function() {
 			var mapOptions = {
-	          center: centerLoc,
+	          center: centerLoc.latlng,
 	          zoom: 15,
 			  mapTypeControl:false,
 			  streetViewControl:false,
@@ -39,13 +40,23 @@ var RIDICULOUSHAT = function() {
 	              parseFloat(markers[i].getAttribute("lng")));
 				self.createMarker(latlng, name, address);
 			}
+			self.createMarker(centerLoc.latlng, centerLoc.name, centerLoc.address);
+		}
+		
+		this.getCenter = function() {
+			var center = $('#you_are_here');
+			centerLoc.name = center.data("name");
+			centerLoc.address = center.data("address");
+			centerLoc.latlng = new google.maps.LatLng(
+	              parseFloat(center.data("lat")),
+	              parseFloat(center.data("lng")));
 		}
 		
 		this.init = function() {
-			centerLoc = new google.maps.LatLng(56.87963, 14.80671);
 			infoWindow = new google.maps.InfoWindow({
 			    pixelOffset: new google.maps.Size(-9, 0)
 		    });
+		    self.getCenter();
 			self.makeMap();
 			self.setMarkers();
 		}		
