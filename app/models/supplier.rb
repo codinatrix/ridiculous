@@ -2,7 +2,7 @@ class Supplier < ActiveRecord::Base
   
   has_and_belongs_to_many :tags
   has_many :taggings
-  has_many :tags, through: :taggings
+  has_many :tags, -> { uniq }, through: :taggings
   
   validates :name, :address, :latitude, :longitude, presence: true
   validates :name, uniqueness: true
@@ -23,5 +23,7 @@ class Supplier < ActiveRecord::Base
       errors.add :base, "Google Maps doesn't understand that address."
     end
   end
+  
+
   
 end
