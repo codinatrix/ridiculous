@@ -51,21 +51,27 @@ class SupplierTest < ActiveSupport::TestCase
   
   def test_too_long_name_should_be_invalid
     @valid_supplier.name = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.' +
-      ' Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et' +
-      ' magnis dis parturient montes, nascetur ridiculus mus. Donec qua'
+    'Aenean commodo ligula eget dolor. Aenean mal' 
     assert_equal @valid_supplier.valid?, false
     make_valid
   end
   
   def test_too_long_address_should_be_invalid
-    @valid_supplier.address = 'Lorem ipsum dolor sit amet, consectetuer adipiscing' +
-      'elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus' +
-      ' et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies' +
-      ' nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede' +
-      ' justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, ' +
-      'imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. ' +
-      'imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. ' +
-      'Integer tincidunt. Cras dapibus' 
+    @valid_supplier.address = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.' +
+    'Aenean commodo ligula eget dolor. Aenean mal' 
+    assert_equal @valid_supplier.valid?, false
+    make_valid
+  end
+  
+  def test_too_long_phone_should_be_invalid
+    @valid_supplier.phone = '1234567890123456'
+    assert_equal @valid_supplier.valid?, false
+    make_valid
+  end
+  
+  def test_too_long_website_should_be_invalid
+    @valid_supplier.website = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.' +
+    'Aenean commodo ligula eget dolor. Aenean mal' 
     assert_equal @valid_supplier.valid?, false
     make_valid
   end
