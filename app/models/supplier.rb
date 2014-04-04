@@ -8,7 +8,20 @@ class Supplier < ActiveRecord::Base
   validates :name, uniqueness: true
   validates :name, length: {maximum: 200}
   validates :address, length: {maximum: 500}
+  validate :google_maps_can_read_address
   
   geocoded_by :address
   before_validation :geocode
+  
+  
+  def google_maps_can_read_address
+    if self.latitude.blank?
+      
+      #Removes unhelpful error messages "Latitude/Longitude can't be blank"
+      errors.delete(:latitude)
+      errors.delete(:longitude)
+      errors.add :base, "Google Maps doesn't understand that address."
+    end
+  end
+  
 end
