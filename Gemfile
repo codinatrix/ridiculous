@@ -38,6 +38,10 @@ gem 'rack-timeout'
 gem 'memcachier'
 gem 'dalli'
 
+group :test, :development do
+  gem 'minitest-rails'
+end
+
 # Use Unicorn on production
 platforms :ruby do # linux
   gem 'unicorn'

@@ -1,10 +1,10 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#encoding: utf-8
 
 one:
-  name: MyString
-  address: MyString
-  latitude: 1.5
-  longitude: 1.5
+  name: Moe\'s Milk
+  address: Sandgärdsgatan 6 352 30 Växjö
+  latitude: 56.87778
+  longitude: 14.80793
 
 two:
   name: MyString
