@@ -9,6 +9,7 @@ Supplier.create(name: 'Grumpy Ted\'s Red Meat', address: 'Östregårdsgatan 2 35
 
 
 Tag.create(name: 'bakery')
+Tag.create(name: 'cereal')
 
 
 Tagging.create(supplier_id: Supplier.find_by_name('Cake Sweet Cake Bakery').id, tag_id: Tag.find_by_name('bakery').id)

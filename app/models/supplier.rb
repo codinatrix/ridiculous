@@ -8,4 +8,7 @@ class Supplier < ActiveRecord::Base
   validates :name, uniqueness: true
   validates :name, length: {maximum: 200}
   validates :address, length: {maximum: 500}
+  
+  geocoded_by :address
+  before_validation :geocode
 end

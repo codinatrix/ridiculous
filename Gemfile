@@ -33,6 +33,9 @@ gem 'newrelic_rpm'
 # Rollbar to check exceptions
 gem 'rollbar'
 
+# For Google Maps Api
+gem 'geocoder'
+
 # Performance enhancers
 gem 'rack-timeout'
 gem 'memcachier'
