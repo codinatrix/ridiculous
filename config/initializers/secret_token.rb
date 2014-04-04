@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Ridiculous::Application.config.secret_key_base = '6ca543ca0b7d12cc8e6cf7798965afba6962d79600b338e8391a1145574074ed1da5b2ff306c315432939fec65886e5316287afc15cdb14e5445006a52d861a5'
+Ridiculous::Application.config.secret_key_base = ENV['SECRET_TOKEN'] || "localonly"
