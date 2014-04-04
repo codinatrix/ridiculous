@@ -15,7 +15,7 @@ class Supplier < ActiveRecord::Base
   
   
   def google_maps_can_read_address
-    if self.latitude.blank?
+    if self.latitude.blank? || self.longitude.blank?
       
       #Removes unhelpful error messages "Latitude/Longitude can't be blank"
       errors.delete(:latitude)
