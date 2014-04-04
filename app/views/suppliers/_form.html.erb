@@ -12,23 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :required => true, :placeholder => 'Supplier name', :maxlength => 100 %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, :required => true, :placeholder => 'Address', :maxlength => 100 %>
+  </div>
+  <div class="field">    
+    <%= f.telephone_field :phone, :placeholder => 'Phone number', :maxlength => 15 %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.url_field :website, :placeholder => 'Website', :maxlength => 100 %>
   </div>
   <div class="field">
-    <%= f.label :website %><br>
-    <%= f.text_field :website %>
-  </div>
-  <div class="field">
-    <%= f.label :tag_ids, "Tags" %><br />
     <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, {multiple:true} %>
    
   </div>
