@@ -20,13 +20,16 @@
       	<td><%= supplier.address %></td>
       </tr>
       <tr>
-      	<td>Phone</td>
+      	<td><%= supplier.phone unless supplier.phone.blank? %></td>
       </tr>
       <tr>
-      	<td>Site</td>
+      	<td><%= link_to supplier.website unless supplier.website.blank? %></td>
       </tr>
       <tr>
-      	<td>Bakery Produce Meat</td>
+      	<td><% supplier.tags.each do |tag| %>
+      			<span class="tag"><%= tag.name %></span>
+      		<% end %>
+      	</td>
       </tr>
     <% end %>
   </tbody>
