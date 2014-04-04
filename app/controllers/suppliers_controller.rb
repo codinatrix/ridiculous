@@ -29,7 +29,7 @@ class SuppliersController < ApplicationController
     respond_to do |format|
       if @supplier.save
         format.html { redirect_to @supplier, notice: 'Supplier was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @supplier }
+        format.json { render action: 'index', status: :created, location: @supplier }
       else
         format.html { render action: 'new' }
         format.json { render json: @supplier.errors, status: :unprocessable_entity }
