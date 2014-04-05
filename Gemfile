@@ -36,6 +36,9 @@ gem 'rollbar'
 # For Google Maps Api
 gem 'geocoder'
 
+# For inline editing
+gem 'best_in_place', github: 'bernat/best_in_place'
+
 # Performance enhancers
 gem 'rack-timeout'
 gem 'memcachier'

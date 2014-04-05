@@ -28,7 +28,7 @@ class SuppliersController < ApplicationController
 
     respond_to do |format|
       if @supplier.save
-        format.html { redirect_to @supplier, notice: 'Supplier was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Supplier was successfully created.' }
         format.json { render action: 'index', status: :created, location: @supplier }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class SuppliersController < ApplicationController
   def update
     respond_to do |format|
       if @supplier.update(supplier_params)
-        format.html { redirect_to @supplier, notice: 'Supplier was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Supplier was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +56,7 @@ class SuppliersController < ApplicationController
   def destroy
     @supplier.destroy
     respond_to do |format|
-      format.html { redirect_to suppliers_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class SuppliersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supplier_params
-      params.require(:supplier).permit(:name, :address, :latitude, :longitude)
+      params.require(:supplier).permit(:name, :address, :latitude, :longitude, :phone, :website)
     end
 end

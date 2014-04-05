@@ -62,14 +62,34 @@ var RIDICULOUSHAT = function() {
 		}		
 	}// End of mapClass
 	
-	
+	//Inline editing class
+	var editClass = function() {
+		var self = this;
+		
+		this.setErrorListener = function() {
+			jQuery(document).on('best_in_place:error', function(event, request, error) {
+			    // Display all error messages from server side validation
+			    jQuery.each(jQuery.parseJSON(request.responseText), function(index, value) {
+			      if( typeof(value) == "object") {value = index + " " + value.toString(); }
+			      alert(value);
+			    });
+			});
+		}
+		
+		this.init = function() {
+			$('.best_in_place').best_in_place();
+			self.setErrorListener();
+		}
+	}// End of editClass
 
 		
 	return {
 		
 		init : function() {
 			var mapObj = new mapClass();
+			var editObj = new editClass();
 			mapObj.init();
+			editObj.init();
 		}
 	}
 
