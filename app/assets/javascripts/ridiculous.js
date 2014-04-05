@@ -66,12 +66,26 @@ var RIDICULOUSHAT = function() {
 	var editClass = function() {
 		var self = this;
 		
+		this.parseError = function(index, value) {
+			index = index.toString();
+			value = value.toString();
+			if (index == 'base') {
+				return value;
+			}
+			else {
+				return 'Supplier ' + index + ' ' + value;
+			}
+		}
+		
 		this.setErrorListener = function() {
 			jQuery(document).on('best_in_place:error', function(event, request, error) {
 			    // Display all error messages from server side validation
 			    jQuery.each(jQuery.parseJSON(request.responseText), function(index, value) {
-			      if( typeof(value) == "object") {value = index + " " + value.toString(); }
-			      alert(value);
+			      if( typeof(value) == "object") {msg = self.parseError(index, value)}
+			      $.bootstrapGrowl(msg, {
+					type: 'danger',
+			      	allow_dismiss: true
+			      });
 			    });
 			});
 		}

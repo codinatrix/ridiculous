@@ -27,6 +27,8 @@ gem 'rails_12factor', group: :production
 gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 
+gem 'jquery-rails'
+
 # New Relic for monitoring and performance tracking
 gem 'newrelic_rpm'
 
