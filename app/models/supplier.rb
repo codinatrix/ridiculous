@@ -13,8 +13,13 @@ class Supplier < ActiveRecord::Base
   validate :google_maps_can_read_address
   
   geocoded_by :address
+  before_validation :clear_latlong
   before_validation :geocode
   
+  def clear_latlong
+    self.latitude = ''
+    self.longitude = ''
+  end
   
   def google_maps_can_read_address
     if self.latitude.blank? || self.longitude.blank?
