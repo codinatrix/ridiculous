@@ -1,3 +1,5 @@
+<% content_for :body_id, "home_page" %>
+
 <% @suppliers.each do |supplier| %>
 	<marker name="<%= supplier.name %>" address="<%= supplier.address %>" lat="<%= supplier.latitude %>" lng="<%= supplier.longitude %>"/>
 <% end %>

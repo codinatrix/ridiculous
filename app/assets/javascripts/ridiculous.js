@@ -164,15 +164,16 @@ var RIDICULOUSHAT = function() {
 			self.setErrorListener();
 		}
 	}// End of editClass
-
 		
 	return {
 		
 		init : function() {
-			var mapObj = new mapClass();
-			var editObj = new editClass();
-			mapObj.init();
-			editObj.init();
+			if ($("#home_page").length > 0) {
+				var mapObj = new mapClass();
+				var editObj = new editClass();
+				mapObj.init();
+				editObj.init();
+			}
 		}
 	}
 
