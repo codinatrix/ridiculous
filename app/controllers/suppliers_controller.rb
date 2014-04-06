@@ -15,6 +15,7 @@ class SuppliersController < ApplicationController
   # GET /suppliers/new
   def new
     @supplier = Supplier.new
+    @tag_list = session[:tag_list]
   end
 
   # GET /suppliers/1/edit
@@ -25,12 +26,15 @@ class SuppliersController < ApplicationController
   # POST /suppliers.json
   def create
     @supplier = Supplier.new(supplier_params)
+    session[:tag_list]= supplier_params[:tag_list]
 
     respond_to do |format|
       if @supplier.save
+        session[:tag_list] = ''
         format.html { redirect_to root_path, notice: 'Supplier was successfully created.' }
         format.json { render action: 'index', status: :created, location: @supplier }
       else
+        @tag_list = session[:tag_list]
         format.html { render action: 'new' }
         format.json { render json: @supplier.errors, status: :unprocessable_entity }
       end
