@@ -1,36 +1,27 @@
 <% @suppliers.each do |supplier| %>
 	<marker name="<%= supplier.name %>" address="<%= supplier.address %>" lat="<%= supplier.latitude %>" lng="<%= supplier.longitude %>"/>
 <% end %>
-<div id="map-canvas"></div>
+<div id="map_canvas"></div>
 <div id="you_are_here" data-name="Ridiculous Hat" data-address="Norrgatan 15, 352 31 Växjö" data-lat="56.87963" data-lng="14.80671"></div>
+<div id="nav"><div id="logo"></div></div>
+<div class="container">
 
-
-<table>
-
-
-  <tbody>
+  <div class="row">
     <% @suppliers.each do |supplier| %>
-      <tr>
-        <td><strong><%= best_in_place supplier, :name %></strong></td>
-        <td><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <tr>
-      	<td><%= best_in_place supplier, :address %></td>
-      </tr>
-      <tr>
-      	<td><%= best_in_place supplier, :phone %></td>
-      </tr>
-      <tr>
-      	<td><%= best_in_place supplier, :website %></td>
-      </tr>
-      <tr>
-      	<td><%= best_in_place supplier, :tag_list %>
-      	</td>
-      </tr>
+    	<div class= "supplier_card_wrap col-md-4 col-sm-6 col-xs-12" >
+    		<ul class="supplier_card">
+		      <li><strong><%= best_in_place supplier, :name %></strong></li>
+		      <li><%= best_in_place supplier, :address %></li>
+		      <li><%= best_in_place supplier, :phone %></li>
+		      <li><%= best_in_place supplier, :website %></li>
+		      <li class="tag_list"><%= best_in_place supplier, :tag_list %></li>
+		      <li><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      		</ul>
+    	</div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
 <br>
 
 <%= link_to 'New Supplier', new_supplier_path %>
+</div>

@@ -1,4 +1,70 @@
-#map-canvas {
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+#map_canvas {
 	height: 400px;
     width: 100%;
+}
+
+/*
+ * Nav and logo
+ */
+
+#nav {
+	background-color: rgba(255, 194, 8, 0.9);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.16);
+    height: 65px;
+    left: 0;
+    min-width: 700px;
+    position: absolute;
+    text-align: center;
+    top: 400px;
+    width: 100%;
+    z-index: 99;
+}
+
+#logo {
+    background: url("../img/logo.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    height: 218px;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -78px;
+}
+
+
+/*
+ * Supplier listings
+ */
+
+#nav + .container {
+	margin-top: 70px;
+}
+
+.supplier_card_wrap {
+	padding: 10px;
+}
+
+.supplier_card {
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	color: #999999;
+	font-size: 16px;
+	line-height: 24px;
+    padding: 10px 15px;
+    background: none repeat scroll 0 0 #E8F9F9;
+    border-bottom: 3px solid #9BD8D7;
+    border-radius: 8px;
+}
+
+.supplier_card strong{
+	color: #35CBC9;
+	font-size: 21px;
+}
+
+.tag_list {
+	font-weight: 700;
+	color: #7CBAB9;
 }
