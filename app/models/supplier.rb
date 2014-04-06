@@ -11,6 +11,7 @@ class Supplier < ActiveRecord::Base
   validates :phone, length: {maximum: 15} #Longest possible phone number (No minimum in case of network shortcuts)
   validates :website, length: {maximum: 100}
   validate :google_maps_can_read_address
+  validate :within_driving_distance
   
   geocoded_by :address
   before_validation :clear_latlong
@@ -32,6 +33,12 @@ class Supplier < ActiveRecord::Base
       errors.delete(:latitude)
       errors.delete(:longitude)
       errors.add :base, "Google Maps doesn't understand that address."
+    end
+  end
+  
+  def within_driving_distance
+    unless self.distance_from([56.87963, 14.80671]) < 200 
+      errors.add :base, "That address is more than 200 miles away."
     end
   end
   
