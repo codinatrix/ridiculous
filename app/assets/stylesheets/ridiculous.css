@@ -82,3 +82,64 @@ li:first-child img {
 .form_in_place input {
 	width: 300px;
 }
+
+/*
+ * New supplier page
+ */
+
+#new_supplier_page {
+	background-color: #E8F9F9;
+}
+
+#new_supplier_page .form_wrap {
+	background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    height: auto;
+    margin-bottom: 40px;
+    margin-top: 60px;
+    padding: 40px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#new_supplier_page #logo_link {
+	width: 272px;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+#new_supplier_page #home_link {
+	font-size: 20px;
+	width: 60px;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+    color: #D6A100;
+    text-transform:uppercase;
+}
+
+
+#new_supplier_page input:required {
+    background: url("../img/icons/required.png") no-repeat scroll 300px 12px #FFFFFF;
+    outline: medium none;
+}
+
+#new_supplier_page input[type="submit"] {
+	background-color: #4F4E4C;
+    border: medium none;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 13px;
+    margin: 20px 0 0;
+    outline: medium none;
+    padding: 6px 28px;
+    width: auto;
+}
+
+.field_with_errors input {
+	border-color: #A94442;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
