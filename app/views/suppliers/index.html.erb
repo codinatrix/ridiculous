@@ -4,7 +4,7 @@
 	<marker name="<%= supplier.name %>" address="<%= supplier.address %>" lat="<%= supplier.latitude %>" lng="<%= supplier.longitude %>"/>
 <% end %>
 <div id="map_canvas"></div>
-<div id="you_are_here" data-name="Ridiculous Hat" data-address="Norrgatan 15, 352 31 Växjö" data-lat="56.87963" data-lng="14.80671"></div>
+<div id="you_are_here" data-name="Ridiculous Hat" data-address="<%= Rails.configuration.ridiculous_address %>" data-lat="<%= Rails.configuration.ridiculous_lat %>" data-lng="<%= Rails.configuration.ridiculous_lon %>"></div>
 <div id="nav"><%= image_tag AssetUrl.url + "img/logo.png", :alt => "logo", :id => "logo" %></div>
 <div class="container">
 

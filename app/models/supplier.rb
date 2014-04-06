@@ -37,7 +37,7 @@ class Supplier < ActiveRecord::Base
   end
   
   def within_driving_distance
-    unless self.distance_from([56.87963, 14.80671]) < 200 
+    unless self.distance_from([Rails.configuration.ridiculous_lat, Rails.configuration.ridiculous_lon]) < 200 
       errors.add :base, "That address is more than 200 miles away."
     end
   end
