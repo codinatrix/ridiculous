@@ -10,11 +10,21 @@
     <% @suppliers.each do |supplier| %>
     	<div class= "supplier_card_wrap col-md-4 col-sm-6 col-xs-12" >
     		<ul class="supplier_card">
-		      <li><strong><%= best_in_place supplier, :name %></strong></li>
-		      <li><%= best_in_place supplier, :address %></li>
-		      <li><%= best_in_place supplier, :phone %></li>
-		      <li><%= best_in_place supplier, :website %></li>
-		      <li class="tag_list"><%= best_in_place supplier, :tag_list %></li>
+		      <li><strong><%= best_in_place supplier, :name, :activator => "#name" + supplier.id.to_s  %></strong>
+		      	<%= edit_icon supplier.id, 'name'  %>
+		      </li>
+		      <li><%= best_in_place supplier, :address, :activator => "#address" + supplier.id.to_s  %>
+		      	<%= edit_icon supplier.id, 'address'  %>
+		      </li>
+		      <li><%= best_in_place supplier, :phone, :activator => "#phone" + supplier.id.to_s  %>
+		      	<%= edit_icon supplier.id, 'phone'  %>
+		      </li>
+		      <li><%= best_in_place supplier, :website, :activator => "#website" + supplier.id.to_s  %>
+		      	<%= edit_icon supplier.id, 'website'  %>
+		      </li>
+		      <li class="tag_list"><%= best_in_place supplier, :tag_list, :activator => "#tag_list" + supplier.id.to_s  %>
+		      	<%= edit_icon supplier.id, 'tag_list'  %>
+		      </li>
 		      <li><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %></li>
       		</ul>
     	</div>

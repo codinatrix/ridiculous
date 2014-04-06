@@ -68,3 +68,17 @@ ul {
 	font-weight: 700;
 	color: #7CBAB9;
 }
+
+.edit_icon {
+	padding: 0px 5px;
+	cursor: pointer;
+}
+
+li:first-child img {
+	position: relative;
+	top: -2px;
+}
+
+.form_in_place input {
+	width: 300px;
+}
