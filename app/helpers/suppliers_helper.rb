@@ -1,6 +1,6 @@
 module SuppliersHelper
   def edit_icon id, field
-    image_tag("/img/icons/edit.png", 
+    image_tag(AssetUrl.url + "img/icons/edit.png", 
                     :alt => "edit",
                     :class => "edit_icon",
                     :height => "12px",

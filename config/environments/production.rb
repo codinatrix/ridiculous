@@ -77,4 +77,7 @@ Ridiculous::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  # Put assets on CDN
+  config.action_controller.asset_host = "http://476493692.r.cdn77.net"
 end

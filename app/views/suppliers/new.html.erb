@@ -1,6 +1,6 @@
 <% content_for :body_id, "new_supplier_page" %>
 
-<%= link_to image_tag("/img/logo.png", :alt => "Home"), suppliers_path, :id => "logo_link" %>
+<%= link_to image_tag(AssetUrl.url + "img/logo.png", :alt => "Home"), suppliers_path, :id => "logo_link" %>
 
 <%= link_to 'Home', suppliers_path, :id => "home_link" %>
 

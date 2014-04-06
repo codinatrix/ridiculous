@@ -5,7 +5,7 @@
 <% end %>
 <div id="map_canvas"></div>
 <div id="you_are_here" data-name="Ridiculous Hat" data-address="Norrgatan 15, 352 31 Växjö" data-lat="56.87963" data-lng="14.80671"></div>
-<div id="nav"><%= image_tag"/img/logo.png", :alt => "logo", :id => "logo" %></div>
+<div id="nav"><%= image_tag AssetUrl.url + "img/logo.png", :alt => "logo", :id => "logo" %></div>
 <div class="container">
 
   <div class="row">
@@ -27,7 +27,7 @@
 		      <li class="tag_list"><%= best_in_place supplier, :tag_list, :activator => "#tag_list" + supplier.id.to_s  %>
 		      	<%= edit_icon supplier.id, 'tag_list'  %>
 		      </li>
-		      <li><%= link_to image_tag("/img/icons/delete.png", 
+		      <li><%= link_to image_tag(AssetUrl.url + "img/icons/delete.png", 
 				                    :alt => "delete",
 				                    :class => "delete_icon" ),
 				              supplier,
