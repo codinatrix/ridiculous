@@ -71,6 +71,11 @@ ul {
 .edit_icon {
 	padding: 0px 5px;
 	cursor: pointer;
+	visibility: hidden;
+}
+
+.supplier_card:hover .edit_icon{
+	visibility : visible;
 }
 
 li:first-child img {
