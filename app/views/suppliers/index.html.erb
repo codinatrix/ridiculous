@@ -25,7 +25,13 @@
 		      <li class="tag_list"><%= best_in_place supplier, :tag_list, :activator => "#tag_list" + supplier.id.to_s  %>
 		      	<%= edit_icon supplier.id, 'tag_list'  %>
 		      </li>
-		      <li><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		      <li><%= link_to image_tag("/img/icons/delete.png", 
+				                    :alt => "delete",
+				                    :class => "delete_icon" ),
+				              supplier,
+				              method: :delete,
+				              data: { confirm: 'Are you sure you want to delete ' + supplier.name + '?' } %>
+		      </li>
       		</ul>
     	</div>
     <% end %>
