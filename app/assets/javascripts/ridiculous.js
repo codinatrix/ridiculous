@@ -13,8 +13,77 @@ var RIDICULOUSHAT = function() {
 			  mapTypeControl:false,
 			  streetViewControl:false,
 			  overviewMapControl:false,
+			  styles: self.getMapStyle()
 	        };
-			map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+			map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+		}
+		
+		this.getMapStyle = function() {
+			return [
+				    {
+				        "featureType": "water",
+				        "elementType": "geometry",
+				        "stylers": [
+				            {
+				                "color": "#a2daf2"
+				            }
+				        ]
+				    },
+				    {
+				        "featureType": "landscape.man_made",
+				        "elementType": "geometry",
+				        "stylers": [
+				            {
+				                "color": "#f7f1df"
+				            }
+				        ]
+				    },
+				    {
+				        "featureType": "landscape.natural",
+				        "elementType": "geometry",
+				        "stylers": [
+				            {
+				                "color": "#d0e3b4"
+				            }
+				        ]
+				    },
+				    {
+				        "featureType": "road.highway",
+				        "elementType": "geometry.fill",
+				        "stylers": [
+				            {
+				                "color": "#ffe15f"
+				            }
+				        ]
+				    },
+				    {
+				        "featureType": "road.highway",
+				        "elementType": "geometry.stroke",
+				        "stylers": [
+				            {
+				                "color": "#efd151"
+				            }
+				        ]
+				    },
+				    {
+				        "featureType": "road.arterial",
+				        "elementType": "geometry.fill",
+				        "stylers": [
+				            {
+				                "color": "#ffffff"
+				            }
+				        ]
+				    },
+				    {
+				        "featureType": "poi",
+				        "elementType": "geometry.fill",
+				        "stylers": [
+				            {
+				                "color": "#d0e3b4"
+				            }
+				        ]
+				    }
+				]
 		}
 		
 		this.createMarker = function(latlng, name, address) {
