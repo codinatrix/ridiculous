@@ -24,7 +24,7 @@
     <%= f.url_field :website, :placeholder => 'Website', :maxlength => 100 %>
   </div>
   <div class="field">
-    <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, {multiple:true} %>
+    <%= f.text_field :tag_list, :placeholder => 'Tags (separate with comma)', :maxlength => 100 %>
    
   </div>
 

@@ -24,9 +24,7 @@
       	<td><%= best_in_place supplier, :website %></td>
       </tr>
       <tr>
-      	<td><% supplier.tags.each do |tag| %>
-      			<span class="tag"><%= tag.name %></span>
-      		<% end %>
+      	<td><%= best_in_place supplier, :tag_list %>
       	</td>
       </tr>
     <% end %>

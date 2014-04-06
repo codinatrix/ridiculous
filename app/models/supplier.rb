@@ -16,6 +16,10 @@ class Supplier < ActiveRecord::Base
   before_validation :clear_latlong
   before_validation :geocode
   
+  #
+  # Validation methods
+  #
+  
   def clear_latlong
     self.latitude = ''
     self.longitude = ''
@@ -31,6 +35,17 @@ class Supplier < ActiveRecord::Base
     end
   end
   
-
+  #
+  # Tagging
+  #
+  
+  def tag_list
+    self.tags.pluck(:name).join(", ")
+  end
+  
+  # Deletes all tags from Supplier and replaces with new string
+  def tag_list=tag_string
+    self.tags = tag_string.split(',').collect{|tag| Tag.find_or_create_by(name: tag.strip)}
+  end
   
 end
