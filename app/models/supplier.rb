@@ -34,13 +34,13 @@ class Supplier < ActiveRecord::Base
       #Removes unhelpful error messages "Latitude/Longitude can't be blank"
       errors.delete(:latitude)
       errors.delete(:longitude)
-      errors.add :base, "Google Maps doesn't understand that address."
+      errors.add :address, "couldn't be read by Google Maps."
     end
   end
   
   def within_driving_distance
     unless self.distance_from([Rails.configuration.ridiculous_lat, Rails.configuration.ridiculous_lon]) < 200 
-      errors.add :base, "That address is more than 200 miles away."
+      errors.add :address, "is more than 200 miles away."
     end
   end
   
