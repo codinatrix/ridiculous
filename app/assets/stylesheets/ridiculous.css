@@ -85,7 +85,7 @@ nav + .container {
     background: none repeat scroll 0 0 #E8F9F9;
     border-bottom: 3px solid #9BD8D7;
     border-radius: 8px;
-    height: 168px;
+    word-wrap: break-word;
 }
 
 .supplier_card strong{
@@ -115,6 +115,7 @@ li:first-child img {
 
 .form_in_place input {
 	width: 300px;
+	height: 19px;
 }
 
 /*
