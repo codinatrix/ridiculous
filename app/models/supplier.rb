@@ -17,7 +17,7 @@ class Supplier < ActiveRecord::Base
   before_validation :clear_latlong
   before_validation :geocode
   
-  default_scope { order('name') }
+  default_scope { order('suppliers.name') }
   
   #
   # Validation methods
