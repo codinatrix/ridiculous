@@ -1,23 +1,43 @@
 <% content_for :body_id, "home_page" %>
 
+<markers>
 <% @suppliers.each do |supplier| %>
-	<marker name="<%= supplier.name %>" address="<%= supplier.address %>" lat="<%= supplier.latitude %>" lng="<%= supplier.longitude %>"/>
+	<marker name="<%= supplier.name %>" address="<%= supplier.address %>" lat="<%= supplier.latitude %>" lng="<%= supplier.longitude %>"></marker>
 <% end %>
+</markers>
 <div id="map_canvas"></div>
 <div id="you_are_here" data-name="Ridiculous Hat" data-address="<%= Rails.configuration.ridiculous_address %>" data-lat="<%= Rails.configuration.ridiculous_lat %>" data-lng="<%= Rails.configuration.ridiculous_lon %>"></div>
-<div id="nav"><%= image_tag AssetUrl.url + "img/logo.png", :alt => "logo", :id => "logo" %></div>
+<%= image_tag AssetUrl.url + "img/logo.png", :alt => "logo", :id => "logo" %>  
+<nav class="navbar" role="navigation">
+  <div class="container-fluid">
+  	 <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'New +', new_supplier_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+		      <li><p class="navbar-text"><%= current_user.email %></p></li>
+		      <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+		      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+		    <% else %>
+		      <li><%= link_to "Login", new_user_session_path %> </li>
+		  <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
 <div class="container">
-
-  <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
-    <% else %>
-      <%= link_to "Login", new_user_session_path %> 
-  <% end %>
-  <%= link_to 'New Supplier', new_supplier_path %>
-
+	
   <div class="row">
     <% @suppliers.each do |supplier| %>
     	<div class= "supplier_card_wrap col-md-4 col-sm-6 col-xs-12" >

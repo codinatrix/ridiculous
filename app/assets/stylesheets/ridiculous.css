@@ -15,21 +15,38 @@ ul {
 	list-style-type: none;
 }
 
+#home_page .alert {
+	position: fixed;
+    right: 20px;
+    top: 20px;
+	z-index: 99;
+}
+
 /*
  * Nav and logo
  */
 
-#nav {
-	background-color: rgba(255, 194, 8, 0.9);
+.navbar {
+	background-color: #FFC208;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.16);
-    height: 50px;
-    left: 0;
-    min-width: 700px;
-    position: absolute;
-    text-align: center;
-    top: 400px;
-    width: 100%;
-    z-index: 99;
+    border-radius: 0px;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: rgba(232, 177, 7, 0.9);
+    color: #A94442;
+}
+
+.navbar p {
+	color: #555;
+    font-size: 12px;
+    margin-top: 17px;
+}
+
+.navbar a {
+	color: #FFF;
+	text-transform: uppercase;
+	font-size: 18px;
+	transition: background-color 1s ease, color 1s ease;
 }
 
 #logo {
@@ -37,7 +54,8 @@ ul {
     position: absolute;
     left: 0;
     right: 0;
-    top: -50px;
+    top: 354px;
+    z-index: 99;
 }
 
 
@@ -50,8 +68,8 @@ ul {
     width: 100%;
 }
 
-#nav + .container {
-	margin-top: 70px;
+nav + .container {
+	margin-top: 50px;
 }
 
 .supplier_card_wrap {
