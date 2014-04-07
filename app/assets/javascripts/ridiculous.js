@@ -150,6 +150,13 @@ var RIDICULOUSHAT = function() {
 			jQuery(document).on('best_in_place:error', function(event, request, error) {
 			    // Display all error messages from server side validation
 			    jQuery.each(jQuery.parseJSON(request.responseText), function(index, value) {
+			      var msg = '';
+			      if (value) {
+			      	msg = value;
+			      }
+			      else {
+			      	return
+			      } 
 			      if( typeof(value) == "object") {msg = self.parseError(index, value)}
 			      $.bootstrapGrowl(msg, {
 					type: 'danger',
