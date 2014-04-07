@@ -41,6 +41,9 @@ gem 'geocoder'
 # For inline editing
 gem 'best_in_place', github: 'bernat/best_in_place'
 
+# Devise user authentication
+gem 'devise'
+
 # Performance enhancers
 gem 'rack-timeout'
 gem 'memcachier'

@@ -19,6 +19,10 @@
   <![endif]-->
 </head>
 <body id ="<%= yield :body_id %>">
+	
+<% flash.each do |type, message| %>
+  <div class="alert alert-<%= twitterized_type(type) %>"><%= message %></div>
+<% end %>
 
 <%= yield %>
 
