@@ -11,7 +11,7 @@ class Supplier < ActiveRecord::Base
   validates :phone, length: {maximum: 15} #Longest possible phone number (No minimum in case of network shortcuts)
   validates :website, length: {maximum: 100}
   validate :google_maps_can_read_address
-  validate :within_driving_distance
+  validate :within_driving_distance, :if => :geocoded?
   
   geocoded_by :address
   before_validation :clear_latlong
