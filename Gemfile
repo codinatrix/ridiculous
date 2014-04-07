@@ -44,6 +44,9 @@ gem 'best_in_place', github: 'bernat/best_in_place'
 # Devise user authentication
 gem 'devise'
 
+# Pagination
+gem 'kaminari'
+
 # Performance enhancers
 gem 'rack-timeout'
 gem 'memcachier'

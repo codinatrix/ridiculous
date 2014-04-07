@@ -1,0 +1,4 @@
+$('.row').html('<%= escape_javascript render(@paginated_suppliers) %>');
+$('.pagination_wrap').html('<%= escape_javascript(paginate(@paginated_suppliers, :remote => true).to_s) %>');
+$('.best_in_place').best_in_place();
+
