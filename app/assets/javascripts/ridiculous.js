@@ -148,6 +148,7 @@ var RIDICULOUSHAT = function() {
 		
 		this.setErrorListener = function() {
 			jQuery(document).on('best_in_place:error', function(event, request, error) {
+				var test = 0;
 			    // Display all error messages from server side validation
 			    jQuery.each(jQuery.parseJSON(request.responseText), function(index, value) {
 			      var msg = '';
@@ -180,12 +181,13 @@ var RIDICULOUSHAT = function() {
 				var editObj = new editClass();
 				mapObj.init();
 				editObj.init();
+				
+				window.setTimeout(function() { $('.alert').fadeOut(300); }, 5000);
 			}
 		}
 	}
 
 
 }();
-
-$(document).ready(RIDICULOUSHAT.init);   
+  
 $(window).bind('page:change', RIDICULOUSHAT.init)
