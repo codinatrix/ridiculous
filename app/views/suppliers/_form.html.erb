@@ -4,7 +4,7 @@
   <% if @supplier.errors.any? %>
       <ul>
       <% @supplier.errors.full_messages.each do |msg| %>
-        <li class="alert alert-danger"><%= msg %></li>
+        <li class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">x</button><%= msg %></li>
       <% end %>
       </ul>
   <% end %>
