@@ -21,7 +21,7 @@
 <body id ="<%= yield :body_id %>">
 	
 <% flash.each do |type, message| %>
-  <div class="alert alert-<%= twitterized_type(type) %>"><%= message %></div>
+  <div class="alert alert-<%= twitterized_type(type) %>"><button type="button" class="close" data-dismiss="alert">x</button><%= message %></div>
 <% end %>
 
 <%= yield %>
