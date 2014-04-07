@@ -190,4 +190,4 @@ var RIDICULOUSHAT = function() {
 
 }();
   
-$(window).bind('page:change', RIDICULOUSHAT.init)
+$(window).bind('page:change', RIDICULOUSHAT.init);
