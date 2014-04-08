@@ -59,8 +59,14 @@ class SuppliersController < ApplicationController
 
   # DELETE /suppliers/1
   # DELETE /suppliers/1.json
-  def destroy
-    @supplier.destroy
+  def destroy    
+    respond_to do |format|
+      if @supplier.destroy
+        format.json { head :no_content }
+      else
+        format.json { render json: @supplier.errors }
+      end
+    end
   end
 
   private
