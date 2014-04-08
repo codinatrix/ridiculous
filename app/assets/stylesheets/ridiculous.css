@@ -9,6 +9,7 @@ ul {
 
 .alert {
 	margin: 20px 0px;
+	z-index: 100;
 }
 
 .alert li {
@@ -19,7 +20,10 @@ ul {
 	position: fixed;
     right: 20px;
     top: 20px;
-	z-index: 99;
+}
+
+#home_page .bootstrap-growl {
+	font-size: 2em;
 }
 
 /*

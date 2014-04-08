@@ -161,7 +161,10 @@ var RIDICULOUSHAT = function() {
 			      if( typeof(value) == "object") {msg = self.parseError(index, value)}
 			      $.bootstrapGrowl(msg, {
 					type: 'danger',
-			      	allow_dismiss: true
+			      	allow_dismiss: true,
+			      	offset: {from: 'top', amount: '260'},
+			      	align: 'center',
+			      	width: 500
 			      });
 			    });
 			});
@@ -185,7 +188,10 @@ var RIDICULOUSHAT = function() {
 			  }
 			  $.bootstrapGrowl('Something went wrong deleting the supplier. Please contact support or try again later. :(', {
 				type: 'danger',
-		      	allow_dismiss: true
+		      	allow_dismiss: true,
+		      	offset: {from: 'top', amount: '260'},
+		      	align: 'center',
+		      	width: 600
 		      });
 			});
 			
