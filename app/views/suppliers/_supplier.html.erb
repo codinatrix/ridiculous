@@ -1,26 +1,26 @@
 <div class= "supplier_card_wrap col-md-4 col-sm-6 col-xs-12" >
 	<ul class="supplier_card">
       <li><strong><%= best_in_place supplier, :name, :activator => "#name" + supplier.id.to_s  %></strong>
-      	<%= edit_icon supplier.id, 'name'  %>
+      	<%= edit_icon supplier.id, 'name' if user_signed_in? %>
       </li>
       <li><%= best_in_place supplier, :address, :activator => "#address" + supplier.id.to_s  %>
-      	<%= edit_icon supplier.id, 'address'  %>
+      	<%= edit_icon supplier.id, 'address' if user_signed_in? %>
       </li>
       <li><%= best_in_place supplier, :phone, :activator => "#phone" + supplier.id.to_s  %>
-      	<%= edit_icon supplier.id, 'phone'  %>
+      	<%= edit_icon supplier.id, 'phone' if user_signed_in? %>
       </li>
       <li><%= best_in_place supplier, :website, :activator => "#website" + supplier.id.to_s  %>
-      	<%= edit_icon supplier.id, 'website'  %>
+      	<%= edit_icon supplier.id, 'website' if user_signed_in? %>
       </li>
       <li class="tag_list"><%= best_in_place supplier, :tag_list, :activator => "#tag_list" + supplier.id.to_s  %>
-      	<%= edit_icon supplier.id, 'tag_list'  %>
+      	<%= edit_icon supplier.id, 'tag_list' if user_signed_in? %>
       </li>
-      <li><%= link_to image_tag(AssetUrl.url + "img/icons/delete.png", 
+      <li><%= link_to( image_tag(AssetUrl.url + "img/icons/delete.png", 
 		                    :alt => "delete",
 		                    :class => "delete_icon" ),
 		              supplier,
 		              method: :delete,
-		              data: { confirm: 'Are you sure you want to delete ' + supplier.name + '?' } %>
+		              confirm: 'Are you sure you want to delete ' + supplier.name + '?') if user_signed_in? %>
       </li>
 	</ul>
 </div>
