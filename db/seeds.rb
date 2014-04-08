@@ -5,8 +5,10 @@
 #                   longitude: '',
 #                   phone: '',
 #                   website: 'http://')
-#   Tag.create(name: '')
-#   Tagging.create(supplier_id: Supplier.find_by_name('').id, tag_id: Tag.find_by_name('').id)
+#   Tag.create!(name: '')
+#   Tagging.create!(supplier_id: Supplier.find_by_name('').id, tag_id: Tag.find_by_name('').id)
+
+# Suppliers don't validate during seed because the Google Maps API doesn't like it
 
 Supplier.new(name: 'Moe\'s Milk', 
                 address: 'Sandgärdsgatan 6 352 30 Växjö', 
@@ -157,6 +159,9 @@ Tag.create!(name: 'fruit')
 Tag.create!(name: 'vegetables')
 Tag.create!(name: 'sugar')
 Tag.create!(name: 'coffee')
+Tag.create!(name: 'fish')
+Tag.create!(name: 'honey')
+Tag.create!(name: 'confectionery')
 
 Tagging.create!(supplier_id: Supplier.find_by_name('Cake Sweet Cake Bakery').id, tag_id: Tag.find_by_name('bakery').id)
 Tagging.create!(supplier_id: Supplier.find_by_name('Moe\'s Milk').id, tag_id: Tag.find_by_name('dairy').id)
@@ -180,6 +185,13 @@ Tagging.create!(supplier_id: Supplier.find_by_name('Om Nom Nom AB').id, tag_id: 
 Tagging.create!(supplier_id: Supplier.find_by_name('The Bleached Peach').id, tag_id: Tag.find_by_name('fruit').id)
 Tagging.create!(supplier_id: Supplier.find_by_name('Bring It Bovine').id, tag_id: Tag.find_by_name('red meat').id)
 Tagging.create!(supplier_id: Supplier.find_by_name('Half Magic Coffee').id, tag_id: Tag.find_by_name('coffee').id)
+Tagging.create!(supplier_id: Supplier.find_by_name('Sting Like a Bee').id, tag_id: Tag.find_by_name('honey').id)
+Tagging.create!(supplier_id: Supplier.find_by_name('Sweetums').id, tag_id: Tag.find_by_name('confectionery').id)
+Tagging.create!(supplier_id: Supplier.find_by_name('Cajun Station').id, tag_id: Tag.find_by_name('fish').id)
+Tagging.create!(supplier_id: Supplier.find_by_name('Paint It Green').id, tag_id: Tag.find_by_name('vegetables').id)
+Tagging.create!(supplier_id: Supplier.find_by_name('Soylent Chartreuse').id, tag_id: Tag.find_by_name('red meat').id)
+Tagging.create!(supplier_id: Supplier.find_by_name('Catch of the Day').id, tag_id: Tag.find_by_name('fish').id)
+
 
 User.create!(email: 'gus@fring.com', password: 'bluestuff')
 User.create!(email: 'gale@boe.com', password: 'vegansmores')
