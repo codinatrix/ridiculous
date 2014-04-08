@@ -108,15 +108,32 @@ nav + .container {
 	visibility : visible;
 }
 
-li:first-child img {
+.supplier_card li:first-child img {
 	position: relative;
 	top: -2px;
+}
+
+.supplier_card li:last-child {
+	height: 19px;
+}
+
+.supplier_card.deleted {
+	background-color: #DFE3E3;
+	color: #ADC5C5;
+	border-bottom: 3px solid #C8CECE;
+}
+
+.supplier_card.deleted .tag_list, .supplier_card.deleted strong {
+	background-color: #DFE3E3;
+	color: #ADC5C5;
 }
 
 .form_in_place input {
 	width: 300px;
 	height: 19px;
 }
+
+
 
 /*
  * New supplier page

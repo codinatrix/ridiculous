@@ -172,6 +172,37 @@ var RIDICULOUSHAT = function() {
 			self.setErrorListener();
 		}
 	}// End of editClass
+	
+	var deleteClass = function() {
+		
+		var self = this;
+		this.setDeleteEvents = function() {
+			var delete_buttons = $(".row").find("[data-method='delete']");
+			
+			delete_buttons.bind('ajax:error', function(event, xhr, status, error){
+			  if (xhr.status == 404) {
+			  	return;
+			  }
+			  $.bootstrapGrowl('Something went wrong deleting the supplier. Please contact support or try again later. :(', {
+				type: 'danger',
+		      	allow_dismiss: true
+		      });
+			});
+			
+			delete_buttons.bind('ajax:beforeSend', function(){
+			  var delete_btn = $(this)
+			  var card = delete_btn.parents(".supplier_card");
+			  var card_children = card.find('*');
+			  card_children.find("img").remove();
+			  card.addClass("deleted");
+			  delete_btn.detach();
+			});
+		}
+		
+		this.init = function() {
+			self.setDeleteEvents();
+		}
+	}// End of deleteClass
 		
 	return {
 		
@@ -179,8 +210,10 @@ var RIDICULOUSHAT = function() {
 			if ($("#home_page").length > 0) {
 				var mapObj = new mapClass();
 				var editObj = new editClass();
+				var deleteObj = new deleteClass();
 				mapObj.init();
 				editObj.init();
+				deleteObj.init();
 				
 				window.setTimeout(function() { $('.alert').fadeOut(300); }, 5000);
 			}
