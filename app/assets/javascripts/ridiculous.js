@@ -147,7 +147,7 @@ var RIDICULOUSHAT = function() {
 		}
 		
 		this.setErrorListener = function() {
-			jQuery(document).on('best_in_place:error', function(event, request, error) {
+			$('.best_in_place').bind("ajax:error", function(event, request, error) {
 				var test = 0;
 			    // Display all error messages from server side validation
 			    jQuery.each(jQuery.parseJSON(request.responseText), function(index, value) {
@@ -179,7 +179,7 @@ var RIDICULOUSHAT = function() {
 	var deleteClass = function() {
 		
 		var self = this;
-		this.setDeleteEvents = function() {
+		this.setDeleteListener = function() {
 			var delete_buttons = $(".row").find("[data-method='delete']");
 			
 			delete_buttons.bind('ajax:error', function(event, xhr, status, error){
@@ -206,9 +206,25 @@ var RIDICULOUSHAT = function() {
 		}
 		
 		this.init = function() {
-			self.setDeleteEvents();
+			self.setDeleteListener();
 		}
 	}// End of deleteClass
+	
+	var resetNewPageClass = function() {
+		var self = this;
+		var editObj, deleteObj;
+		this.reset = function() {
+			editObj.init();
+			deleteObj.init();
+		}
+		this.init = function(editParam, deleteParam) {
+			editObj = editParam;
+			deleteObj = deleteParam;
+		}
+		
+	}// End of resetNewPageClass
+	
+	var resetNewPageObj;
 		
 	return {
 		
@@ -217,11 +233,20 @@ var RIDICULOUSHAT = function() {
 				var mapObj = new mapClass();
 				var editObj = new editClass();
 				var deleteObj = new deleteClass();
+				resetNewPageObj = new resetNewPageClass();
 				mapObj.init();
 				editObj.init();
 				deleteObj.init();
+				resetNewPageObj.init(editObj, deleteObj);
 				
 				window.setTimeout(function() { $('.alert').fadeOut(300); }, 5000);
+			}
+			return resetNewPageObj;
+		},
+		
+		reset_new_page : function() {
+			if ($("#home_page").length > 0) {
+				resetNewPageObj.reset();
 			}
 		}
 	}
