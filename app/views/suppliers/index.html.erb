@@ -20,6 +20,10 @@
     </div>
     
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <%= form_tag suppliers_path, method: :get, :class => 'navbar-form navbar-left', :role => 'search' do %>
+	    <%= text_field_tag :query, params[:query], class: 'form-control', :placeholder => 'Search supplier or tag' %>
+	    <%= submit_tag "Go", :name => nil, :class => 'btn btn-default' %>
+	 <% end %>
       <ul class="nav navbar-nav">
         <li><%= link_to 'New +', new_supplier_path %></li>
       </ul>
@@ -37,7 +41,7 @@
 </nav>
 
 <div class="container">
-	
+ 
   <div class="pagination_wrap">
 	<%= paginate @paginated_suppliers, :remote => true %>
   </div>

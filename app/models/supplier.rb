@@ -57,4 +57,17 @@ class Supplier < ActiveRecord::Base
     self.tags = tag_string.split(',').collect{|tag| Tag.find_or_create_by(name: tag.strip)}
   end
   
+  #
+  # Search
+  #
+  def self.search(query)
+    if query.present?
+      includes(:tags)
+      .where('suppliers.name ilike ? OR suppliers.address ilike ? OR tags.name ilike ? ', "%#{query}%", "%#{query}%", "%#{query}%")
+      .references(:tags)
+    else
+      all
+    end
+  end
+  
 end
