@@ -2,7 +2,7 @@ class AssetUrl
   
   def self.url
     if Rails.env.production?
-      url = 'http://476493692.r.cdn77.net/'
+      url = Rails.application.config.action_controller.asset_host + '/'
     else Rails.env.development?
       url = '/'
     end
