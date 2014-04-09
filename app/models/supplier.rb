@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Supplier < ActiveRecord::Base
   
   has_and_belongs_to_many :tags
@@ -39,8 +40,15 @@ class Supplier < ActiveRecord::Base
   end
   
   def within_driving_distance
-    unless self.distance_from([Rails.configuration.ridiculous_lat, Rails.configuration.ridiculous_lon]) < 200 
-      errors.add :address, "is more than 200 miles away."
+    if self.distance_from([Rails.configuration.ridiculous_lat, Rails.configuration.ridiculous_lon]) > 200
+      # Allows user to keep address without town name unless the town name is necessary for GMaps to understand
+      if self.address.include? 'växjö'
+        errors.add :address, "is more than 200 miles away."
+      else
+        self.address << ' växjö'
+        self.geocode
+        self.within_driving_distance
+      end
     end
   end
   
