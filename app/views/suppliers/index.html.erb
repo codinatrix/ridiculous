@@ -25,6 +25,7 @@
 	    <%= submit_tag "Go", :name => nil, :class => 'btn btn-default' %>
 	 <% end %>
       <ul class="nav navbar-nav">
+      	<li><%= link_to 'All', suppliers_path %></li>
         <li><%= link_to 'New +', new_supplier_path if user_signed_in? %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
