@@ -147,7 +147,15 @@ ul {
 	height: 19px;
 }
 
+.icon-bar {
+	background-color: #000;
+}
 
+@media screen and (max-width: 970px) {
+    #logo{
+      display: none;
+    }
+}
 
 /*
  * New supplier page
@@ -208,4 +216,10 @@ ul {
 .field_with_errors input {
 	border-color: #A94442;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+@media screen and (max-width: 420px) {
+	#new_supplier_page .form_wrap{
+      width: 100%;
+    }
 }
