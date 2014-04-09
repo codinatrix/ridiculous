@@ -11,6 +11,7 @@ class Supplier < ActiveRecord::Base
   validates :address, length: {maximum: 100}
   validates :phone, length: {maximum: 15} #Longest possible phone number (No minimum in case of network shortcuts)
   validates :website, length: {maximum: 100}
+  validate :validate_url
   validate :google_maps_can_read_address
   validate :within_driving_distance, :if => :geocoded?
   
@@ -50,6 +51,24 @@ class Supplier < ActiveRecord::Base
         self.within_driving_distance
       end
     end
+  end
+  
+  def validate_url
+    begin
+      url = URI.parse self.website
+      
+      if not right_scheme url
+        errors.add :website, "is not a valid link. Did you mean " + url.host + '?'
+      end
+    rescue URI::InvalidURIError
+      errors.add :website, 'is not a valid link.'
+    end
+  end
+  
+  # Checks if a link has scheme other than http (for example ftp) 
+  # Returns true if there is no scheme (for example google.com)
+  def right_scheme url
+    url.kind_of?(URI::HTTP) or url.kind_of?(URI::HTTPS) or !url.scheme
   end
   
   #
