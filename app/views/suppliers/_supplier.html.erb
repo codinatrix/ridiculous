@@ -21,7 +21,7 @@
 		              supplier,
 		              remote: true,
 		              method: :delete,
-		              confirm: 'Are you sure you want to delete ' + supplier.name + '?') if user_signed_in? %>
+		              :data => { :confirm => 'Are you sure you want to delete ' + supplier.name + '?' }) if user_signed_in? %>
       </li>
 	</ul>
 </div>
