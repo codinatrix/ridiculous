@@ -86,11 +86,13 @@ var RIDICULOUSHAT = function() {
 				]
 		}
 		
-		this.createMarker = function(latlng, name, address) {
+		this.createMarker = function(latlng, name, address, icon) {
+			if (!icon) {icon = '';}
 			var html = "<b>" + name + "</b> <br/>" + address;
 		  	var marker = new google.maps.Marker({
 				map: map,
-				position: latlng
+				position: latlng,
+				icon: icon
 		  	});
 		  	
 		  	google.maps.event.addListener(marker, 'click', function() {
@@ -107,9 +109,9 @@ var RIDICULOUSHAT = function() {
 				var latlng = new google.maps.LatLng(
 	              parseFloat(markers[i].getAttribute("lat")),
 	              parseFloat(markers[i].getAttribute("lng")));
-				self.createMarker(latlng, name, address);
+				self.createMarker(latlng, name, address, "../img/icons/pin.png");
 			}
-			self.createMarker(centerLoc.latlng, centerLoc.name, centerLoc.address);
+			self.createMarker(centerLoc.latlng, centerLoc.name, centerLoc.address, "../img/icons/here.png");
 		}
 		
 		this.getCenter = function() {
