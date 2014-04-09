@@ -8,4 +8,7 @@ class Tag < ActiveRecord::Base
   validates :name, presence: true
   
   default_scope { order('name') }
+  
+  before_save { self.name.downcase! }
+
 end
