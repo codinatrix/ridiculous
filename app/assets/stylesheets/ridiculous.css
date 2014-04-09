@@ -1,3 +1,8 @@
+body {
+	font-family: 'Vollkorn';
+	letter-spacing:2px;
+}
+
 ul {
     list-style-type: none;
     padding: 0px;
@@ -90,11 +95,14 @@ nav + .container {
     border-bottom: 3px solid #9BD8D7;
     border-radius: 8px;
     word-wrap: break-word;
+    text-shadow: 1px 1px 0 #FFFFFF;
 }
 
 .supplier_card strong{
 	color: #35CBC9;
 	font-size: 21px;
+	text-shadow: 0px 2px 3px #fff;
+	font-family: 'Josefin Slab';
 }
 
 .tag_list {
