@@ -55,7 +55,7 @@ class Supplier < ActiveRecord::Base
     begin
       url = URI.parse self.website
       
-      if not right_scheme url
+      unless right_scheme url
         errors.add :website, "is not a valid link. Did you mean " + url.host + '?'
       end
     rescue URI::InvalidURIError
