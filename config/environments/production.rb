@@ -79,5 +79,5 @@ Ridiculous::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
   
   # Put assets on CDN
-  config.action_controller.asset_host = "http://ridiculous-93a.kxcdn.com"
+  config.action_controller.asset_host = "http://476493692.r.cdn77.net"
 end
